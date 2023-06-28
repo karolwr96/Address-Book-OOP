@@ -10,18 +10,13 @@ void AdresatMenedzer::dodajAdresata() {
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
 
-    int modyfikowaneId = plikZAdresatami.pobierzIdOstatniegoAdresata();
-    modyfikowaneId++;
-    plikZAdresatami.dodajWartoscDoIdOstatniegoAdresata(modyfikowaneId);
-
     return;
 }
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    int ID = plikZAdresatami.pobierzIdOstatniegoAdresata();
-    adresat.ustawId(++ID);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
     adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
