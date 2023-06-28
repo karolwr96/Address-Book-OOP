@@ -31,7 +31,7 @@
     <panel_attributes>PlikZAdresatami
 --
 
-- nazwaPlikuZAdresatami : String
+- NAZWA_PLIKU_Z_ADRESATAMI : const String
 - czyPlikJestPusty() : Bool
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami() : Integer
 - pobierzDaneAdresata() : Adresat
@@ -46,7 +46,7 @@
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku() : vector &lt;Adresat&gt;
 + ustawIdOstatniegoAdresata() : Integer
 + pobierzIdOstatniegoAdresata() : Integer
-+ dodajWartoscDoIdOstatniegoAdresata : void</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -79,13 +79,14 @@
     <panel_attributes>KsiazkaAdresowa
 --
 - UzytkownikMenedzer uzytkownikMenedzer
-- AdresatMenedzer adresatMenedzer
+- AdresatMenedzer *adresatMenedzer
 - Menu menu
+- NAZWA_PLIKU_Z_ADRESATAMI : const String
 --
 KsiazkaAdresowa(
-uzytkownikMenedzer.wczytajUzytkownikowZPliku();
 wybierzOpcjeZMenu();
 )
+~KsiazkaAdresowa()
 + wybierzOpcjeZMenu() : void
 </panel_attributes>
     <additional_attributes/>
@@ -96,7 +97,7 @@ wybierzOpcjeZMenu();
       <x>30</x>
       <y>190</y>
       <w>340</w>
-      <h>280</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>UzytkownikMenedzer
 --
@@ -109,6 +110,7 @@ wybierzOpcjeZMenu();
 --
    UzytkownikMenedzer() {
         idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku()
     };
 + rejestracjaUzytkownika() : void
 + wczytajUzytkownikowZPliku() :void
@@ -131,17 +133,17 @@ wybierzOpcjeZMenu();
     <panel_attributes>AdresatMenedzer
 --
 - adresaci : vector &lt;Adresat&gt;
-- idZalogowanegoUzytkownika: Integer
+- ID_ZALOGOWANEGO_UZYTKOWNIKA: const Integer
 - PlikZAdresatami plikZAdresatami;
 --
     AdresatMenedzer ()
 + dodajAdresata() : void
 + podajDaneNowegoAdresata() : Adresat
 + wyswietlWszystkichAdresatow() : void
-+ void wyswietlDaneAdresata() : void
-+ ustawIdZalogowanegoUzytkownika(): void
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku() : void
-+ wyczyscVector() : void</panel_attributes>
++ wyswietlDaneAdresata() : void
+
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -183,7 +185,7 @@ wybierzOpcjeZMenu();
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
-- nazwaPlikuZUzytkownikami : String
+- NAZWA_PLIKU_Z_UZYTKOWNIKAMI : const String
 - czyPlikJestPusty() : Bool
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami() : String
 - pobierzDaneUzytkownika() : Uzytkownik
