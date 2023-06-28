@@ -16,8 +16,8 @@ void AdresatMenedzer::dodajAdresata() {
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1 );
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     string imie = MetodyPomocnicze::wczytajLinie();
@@ -68,15 +68,15 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-void AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA) {
-    idZalogowanegoUzytkownika = IDZALOGOWANEGOUZYTKOWNIKA;
-}
+//v/oid AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA) {
+  //  ID_ZALOGOWANEGO_UZYTKOWNIKA = IDZALOGOWANEGOUZYTKOWNIKA;
+//}
 
 void AdresatMenedzer::wyczyscVector() {
     adresaci.clear();
 }
 
-void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-}
+//void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+//{
+//adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+//}

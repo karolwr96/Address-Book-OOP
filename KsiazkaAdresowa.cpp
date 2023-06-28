@@ -11,9 +11,10 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
                 break;
             case '2':
                 uzytkownikMenedzer.logowanieUzytkownika();
-                if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() != 0) {
-                    adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
-                    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() > 0) {
+                    adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+                   // adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+                   // adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
                 }
                 break;
             case '9':
@@ -29,7 +30,7 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
 
             switch (wybor) {
             case '1':
-                adresatMenedzer.dodajAdresata();
+                adresatMenedzer->dodajAdresata();
                 break;
           /*  case '2':
                 wyszukajAdresatowPoImieniu(adresaci);
@@ -38,7 +39,7 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
                 wyszukajAdresatowPoNazwisku(adresaci);
                 break; */
             case '4':
-                adresatMenedzer.wyswietlWszystkichAdresatow();
+                adresatMenedzer->wyswietlWszystkichAdresatow();
                 break;
             /*  case '5':
                   idUsunietegoAdresata = usunAdresata(adresaci);
@@ -52,7 +53,7 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
                 break;
             case '8':
                 uzytkownikMenedzer.wylogujUzytkownika();
-                adresatMenedzer.wyczyscVector();
+                adresatMenedzer->wyczyscVector();
                 break;
             }
         }
