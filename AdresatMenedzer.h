@@ -16,7 +16,7 @@ using namespace std;
 class AdresatMenedzer {
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
-   // int idZalogowanegoUzytkownika;
+
     PlikZAdresatami plikZAdresatami;
 
 public :
@@ -28,9 +28,6 @@ public :
     Adresat podajDaneNowegoAdresata();
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(Adresat adresat);
-   // void ustawIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA);
-    void wyczyscVector();
-   // void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 };
 
 #endif

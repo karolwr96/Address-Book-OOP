@@ -13,8 +13,6 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
                 uzytkownikMenedzer.logowanieUzytkownika();
                 if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() > 0) {
                     adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
-                   // adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
-                   // adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
                 }
                 break;
             case '9':
@@ -53,7 +51,8 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
                 break;
             case '8':
                 uzytkownikMenedzer.wylogujUzytkownika();
-                adresatMenedzer->wyczyscVector();
+                delete adresatMenedzer;
+                adresatMenedzer = NULL;
                 break;
             }
         }

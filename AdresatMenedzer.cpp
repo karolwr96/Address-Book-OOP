@@ -67,16 +67,3 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << "Email:              " << adresat.pobierzEmail() << endl;
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
-
-//v/oid AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA) {
-  //  ID_ZALOGOWANEGO_UZYTKOWNIKA = IDZALOGOWANEGOUZYTKOWNIKA;
-//}
-
-void AdresatMenedzer::wyczyscVector() {
-    adresaci.clear();
-}
-
-//void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-//{
-//adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
-//}
