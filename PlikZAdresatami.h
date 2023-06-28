@@ -30,7 +30,6 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int ustawIdOstatniegoAdresata();
     int pobierzIdOstatniegoAdresata();
-    void dodajWartoscDoIdOstatniegoAdresata(int modyfikowaneId);
 };
 
 #endif

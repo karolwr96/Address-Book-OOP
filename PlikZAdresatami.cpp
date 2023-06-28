@@ -142,7 +142,3 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata() {
     return idOstatniegoAdresata;
 }
 
-void PlikZAdresatami::dodajWartoscDoIdOstatniegoAdresata(int modyfikowaneId) {
-    idOstatniegoAdresata = modyfikowaneId;
-    return;
-}
