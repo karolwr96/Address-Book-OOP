@@ -14,10 +14,9 @@ public:
     static string konwerjsaIntNaString(int liczba);
     static char wczytajZnak();
     static string wczytajLinie();
-    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     static string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     static int konwersjaStringNaInt(string liczba);
-
+    static int wczytajLiczbeCalkowita();
 };
 
 #endif

@@ -30,22 +30,21 @@ void KsiazkaAdresowa::wybierzOpcjeZMenu() {
             case '1':
                 adresatMenedzer->dodajAdresata();
                 break;
-          /*  case '2':
-                wyszukajAdresatowPoImieniu(adresaci);
+            case '2':
+                adresatMenedzer->wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                wyszukajAdresatowPoNazwisku(adresaci);
-                break; */
+                adresatMenedzer->wyszukajAdresatowPoNazwisku();
+                break;
             case '4':
                 adresatMenedzer->wyswietlWszystkichAdresatow();
                 break;
-            /*  case '5':
-                  idUsunietegoAdresata = usunAdresata(adresaci);
-                  idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
-                  break;
-              case '6':
-                  edytujAdresata(adresaci);
-                  break; */
+            case '5':
+                adresatMenedzer->usunAdresata();
+                break;
+            case '6':
+                adresatMenedzer->edytujAdresata();
+                break;
             case '7':
                 uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
                 break;

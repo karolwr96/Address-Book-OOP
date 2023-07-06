@@ -26,11 +26,11 @@ public :
         idZalogowanegoUzytkownika = 0;
         uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
     }
-void rejestracjaUzytkownika();
-int pobierzIdZalogowanegoUzytkownika();
-void logowanieUzytkownika();
-void wylogujUzytkownika();
-void zmianaHaslaZalogowanegoUzytkownika();
+    void rejestracjaUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    void logowanieUzytkownika();
+    void wylogujUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
 };
 
 #endif
