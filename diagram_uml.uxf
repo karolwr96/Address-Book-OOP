@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1120</x>
+      <x>1130</x>
       <y>210</y>
       <w>170</w>
       <h>150</h>
@@ -23,14 +23,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>660</x>
-      <y>550</y>
+      <x>640</x>
+      <y>630</y>
       <w>560</w>
-      <h>220</h>
+      <h>370</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-
 - NAZWA_PLIKU_Z_ADRESATAMI : const String
 - czyPlikJestPusty() : Bool
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami() : Integer
@@ -46,13 +45,15 @@
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku() : vector &lt;Adresat&gt;
 + ustawIdOstatniegoAdresata() : Integer
 + pobierzIdOstatniegoAdresata() : Integer
++ usunWybranaLinieWPliku() : void
++ void edytujWybranaLinieWPliku() : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
+      <x>640</x>
       <y>10</y>
       <w>530</w>
       <h>150</h>
@@ -60,21 +61,21 @@
     <panel_attributes>MetodyPomocnicze
 --
 + konwersjaIntNaString() : String
-+ konwerjsaIntNaString() : String
 + wczytajZnak() Char
 + wczytajLinie() : String
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale() : String
 + zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami() : String
-+ konwersjaStringNaInt() : Integer</panel_attributes>
++ konwersjaStringNaInt() : Integer
++ wczytajLiczbeCalkowita() : Integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
+      <x>300</x>
       <y>10</y>
       <w>330</w>
-      <h>170</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
@@ -94,8 +95,8 @@ wybierzOpcjeZMenu();
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>190</y>
+      <x>0</x>
+      <y>250</y>
       <w>340</w>
       <h>320</h>
     </coordinates>
@@ -126,21 +127,29 @@ wybierzOpcjeZMenu();
     <id>UMLClass</id>
     <coordinates>
       <x>390</x>
-      <y>190</y>
+      <y>230</y>
       <w>560</w>
-      <h>240</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
 - adresaci : vector &lt;Adresat&gt;
 - ID_ZALOGOWANEGO_UZYTKOWNIKA: const Integer
 - PlikZAdresatami plikZAdresatami;
+- zamienPierwszaLitereNaDuzaAPozostaleNaMale() : String
+- wyswietlIloscWyszukanychAdresatow() : void
+- podajIdWybranegoAdresata() : Integer
+- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami() : String
 --
     AdresatMenedzer ()
 + dodajAdresata() : void
 + podajDaneNowegoAdresata() : Adresat
 + wyswietlWszystkichAdresatow() : void
 + wyswietlDaneAdresata() : void
++ wyszukajAdresatowPoImieniu() : void
++ wyszukajAdresatowPoNazwisku() : void
++ usunAdresata() : void
++ edytujAdresata() : void
 
 
 </panel_attributes>
@@ -149,7 +158,7 @@ wybierzOpcjeZMenu();
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
+      <x>1000</x>
       <y>390</y>
       <w>280</w>
       <h>90</h>
@@ -157,13 +166,14 @@ wybierzOpcjeZMenu();
     <panel_attributes>Menu
 --
 + wybierzOpcjeZMenuGlownego() : char
-+ wybierzOpcjeZMenuUzytkownika() : char</panel_attributes>
++ wybierzOpcjeZMenuUzytkownika() : char
++ wybierzOpcjeZMenuEdycja() : char</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>980</x>
+      <x>990</x>
       <y>210</y>
       <w>120</w>
       <h>150</h>
@@ -178,15 +188,14 @@ wybierzOpcjeZMenu();
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>580</y>
+      <x>30</x>
+      <y>650</y>
       <w>560</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
 - NAZWA_PLIKU_Z_UZYTKOWNIKAMI : const String
-- czyPlikJestPusty() : Bool
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami() : String
 - pobierzDaneUzytkownika() : Uzytkownik
 --
@@ -196,6 +205,19 @@ PlikZUzytkownikami()
 - zapiszWszystkichUzytkownikowDoPliku() : void
 
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1280</x>
+      <y>620</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>PlikTekstowy
+--
++ czyPlikJestPusty : Bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
