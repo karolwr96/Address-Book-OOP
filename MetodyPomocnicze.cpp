@@ -12,6 +12,7 @@ char MetodyPomocnicze::wczytajZnak() {
     char znak  = {0};
 
     while (true) {
+        cin.sync();
         getline(cin, wejscie);
 
         if (wejscie.length() == 1) {
@@ -65,3 +66,21 @@ int MetodyPomocnicze::wczytajLiczbeCalkowita() {
     }
     return liczba;
 }
+
+string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) {
+    if (!tekst.empty()) {
+        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
+        tekst[0] = toupper(tekst[0]);
+    }
+    return tekst;
+}
+
+string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku) {
+    string liczba = "";
+    while(isdigit(tekst[pozycjaZnaku])) {
+        liczba += tekst[pozycjaZnaku];
+        pozycjaZnaku ++;
+    }
+    return liczba;
+}
+

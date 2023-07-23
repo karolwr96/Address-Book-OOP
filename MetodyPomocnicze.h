@@ -17,6 +17,8 @@ public:
     static string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     static int konwersjaStringNaInt(string liczba);
     static int wczytajLiczbeCalkowita();
+    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static string pobierzLiczbe(string tekst, int pozycjaZnaku);
 };
 
 #endif

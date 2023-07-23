@@ -7,8 +7,15 @@
 using namespace std;
 
 class PlikTekstowy {
-public:
+    const string NAZWA_PLIKU;
+
+protected:
+    PlikTekstowy(string nazwaPliku) : NAZWA_PLIKU(nazwaPliku) {}
+
+    string pobierzNazwePliku();
     bool czyPlikJestPusty(fstream &plikTekstowy);
+    void usunPlik(string nazwaPlikuZRozszerzeniem);
+    void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 };
 
 #endif

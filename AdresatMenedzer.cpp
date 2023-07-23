@@ -21,12 +21,12 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
 
     cout << "Podaj imie: ";
     string imie = MetodyPomocnicze::wczytajLinie();
-    imie = zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
+    imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
     adresat.ustawImie(imie);
 
     cout << "Podaj nazwisko: ";
     string nazwisko = MetodyPomocnicze::wczytajLinie();
-    nazwisko = zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
+    nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
     adresat.ustawNazwisko(nazwisko);
 
     cout << "Podaj numer telefonu: ";
@@ -57,6 +57,8 @@ void AdresatMenedzer::wyswietlWszystkichAdresatow() {
         cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
     }
     system("pause");
+
+    return;
 }
 
 void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
@@ -66,14 +68,6 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << "Numer telefonu:     " << adresat.pobierzNumerTelefonu() << endl;
     cout << "Email:              " << adresat.pobierzEmail() << endl;
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
-}
-
-string AdresatMenedzer::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) {
-    if (!tekst.empty()) {
-        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
-        tekst[0] = toupper(tekst[0]);
-    }
-    return tekst;
 }
 
 void AdresatMenedzer::wyszukajAdresatowPoImieniu() {
@@ -86,7 +80,7 @@ void AdresatMenedzer::wyszukajAdresatowPoImieniu() {
 
         cout << "Wyszukaj adresatow o imieniu: ";
         imiePoszukiwanegoAdresata = MetodyPomocnicze::wczytajLinie();
-        imiePoszukiwanegoAdresata = zamienPierwszaLitereNaDuzaAPozostaleNaMale(imiePoszukiwanegoAdresata);
+        imiePoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imiePoszukiwanegoAdresata);
 
         for (unsigned int i = 0; i < adresaci.size(); i++) {
             if (adresaci[i].pobierzImie() == imiePoszukiwanegoAdresata) {
@@ -100,13 +94,17 @@ void AdresatMenedzer::wyszukajAdresatowPoImieniu() {
     }
     cout << endl;
     system("pause");
+
+    return;
 }
 
 void AdresatMenedzer::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow) {
-    if (iloscAdresatow == 0)
+    if (iloscAdresatow == 0) {
         cout << endl << "W ksiazce adresowej nie ma adresatow z tymi danymi." << endl;
-    else
+    } else {
         cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
+    }
+    return;
 }
 
 void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
@@ -119,7 +117,7 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
 
         cout << "Wyszukaj adresatow o nazwisku: ";
         nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::wczytajLinie();
-        nazwiskoPoszukiwanegoAdresata = zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
 
         for (unsigned int i = 0; i < adresaci.size(); i++) {
             if (adresaci[i].pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata) {
@@ -133,6 +131,8 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku() {
     }
     cout << endl;
     system("pause");
+
+    return;
 }
 
 void AdresatMenedzer::usunAdresata() {
@@ -151,7 +151,7 @@ void AdresatMenedzer::usunAdresata() {
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
             znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't') {
-                plikZAdresatami.usunWybranaLinieWPliku(idUsuwanegoAdresata);
+                plikZAdresatami.usunAdresataZPliku(idUsuwanegoAdresata);
                 auto it = adresaci.begin() + i;
                 adresaci.erase(it);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
@@ -164,7 +164,7 @@ void AdresatMenedzer::usunAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
         system("pause");
     }
@@ -199,7 +199,7 @@ void AdresatMenedzer::edytujAdresata() {
             case '1': {
                 cout << "Podaj nowe imie: ";
                 string imie = MetodyPomocnicze::wczytajLinie();
-                imie = zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
+                imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
                 adresaci[i].ustawImie(imie);
                 liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci[i]);
                 plikZAdresatami.edytujWybranaLinieWPliku(liniaZDanymiAdresata);
@@ -208,9 +208,9 @@ void AdresatMenedzer::edytujAdresata() {
             case '2': {
                 cout << "Podaj nowe nazwisko: ";
                 string nazwisko = MetodyPomocnicze::wczytajLinie();
-                nazwisko = zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
+                nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
                 adresaci[i].ustawNazwisko(nazwisko);
-               liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci[i]);
+                liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci[i]);
                 plikZAdresatami.edytujWybranaLinieWPliku(liniaZDanymiAdresata);
                 break;
             }
@@ -247,14 +247,14 @@ void AdresatMenedzer::edytujAdresata() {
             }
         }
     }
-    if (czyIstniejeAdresat == false) {
+    if (!czyIstniejeAdresat) {
         cout << endl << "Nie ma takiego adresata." << endl << endl;
     }
     system("pause");
+    return;
 }
 
-string AdresatMenedzer::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
-{
+string AdresatMenedzer::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) {
     string liniaZDanymiAdresata = "";
 
     liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzId()) + '|';

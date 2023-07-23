@@ -9,6 +9,8 @@ void UzytkownikMenedzer::rejestracjaUzytkownika() {
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
+
+    return;
 }
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
@@ -80,6 +82,7 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
 
 void UzytkownikMenedzer::wylogujUzytkownika() {
     idZalogowanegoUzytkownika = 0;
+    return;
 }
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
@@ -96,6 +99,10 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
         }
     }
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+
+    return;
 }
+
+
 
 
